@@ -7,7 +7,7 @@ from articleHandler import ArticleLoader
 from articleHandler import Article
 
 articles = ArticleLoader().load_articles_from_files("articles/")
-print(articles[0])
+print(articles[0].name)
 
 cpr = bottle.app()
 

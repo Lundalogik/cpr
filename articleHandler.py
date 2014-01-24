@@ -8,6 +8,18 @@ class Article:
     self.sections = []
     self.link = None
 
+  def name(self):
+    return self.name
+
+  def html(self):
+    return self.html
+
+  def sections(self):
+    return self.sections
+
+  def link(self):
+    return self.link
+
 
 class ArticleLoader:
   def __init__(self):
