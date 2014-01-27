@@ -11,12 +11,12 @@ class SendEmail:
 
 	def send_mail(self):
 		msg = MIMEMultipart()
-		msg['From'] = 'filip.persson@lundalogik.se'
-		msg['To'] = 'filip.persson@me.com'
+		msg['From'] = 'filip.persson@.se'
+		msg['To'] = 'filip.persson@.com'
 		msg['Subject'] = 'simple email in python'
 		message = 'here is the email'
 		msg.attach(MIMEText(message))
-		mailserver = smtplib.SMTP('lundalogik.se', 587)
+		mailserver = smtplib.SMTP('', 587)
 		print("hepp!")
 		# identify ourselves to smtp gmail client
 		mailserver.ehlo()
@@ -24,8 +24,8 @@ class SendEmail:
 		mailserver.starttls()
 		# re-identify ourselves as an encrypted connection
 		mailserver.ehlo()
-		mailserver.login('fpe', '3LimePaj?')
+		mailserver.login('', '')
 
-		mailserver.sendmail('filip.persson@lundalogik.se','filip.persson@me.com',msg.as_string())
+		mailserver.sendmail('filip.persson@.se','filip.persson@.com',msg.as_string())
 
 		mailserver.quit()
