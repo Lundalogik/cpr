@@ -2,10 +2,8 @@ import bottle
 from bottle import response
 from bottle import redirect
 from bottle import static_file
-<<<<<<< HEAD
-=======
+
 from bottle import request
->>>>>>> 8112fb078934660adb1eb886dcbafc85ce7592c2
 
 import os
 import json
@@ -22,7 +20,8 @@ cpr = bottle.app()
 
 @cpr.route('/')
 def send_static():
-    return static_file('/index.html', root='./')
+    return static_file('/test.html', root='./')
+
 
 @cpr.route('/web/<filename:path>')
 def send_static(filename):
