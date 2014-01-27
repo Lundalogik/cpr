@@ -3,6 +3,7 @@
   <head>
     <title>LimeBootstrap Appstore</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/lbsmanual.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
@@ -74,10 +75,39 @@
       <!-- /ko -->
 
     </div>
+=======
+    <link href="web/css/bootstrap.min.css" rel="stylesheet">
+    <link href="web/css/lbsmanual.css" rel="stylesheet">
+    <link href="web/css/animate.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+  <script type="text/html" id="article-template">
+    <!-- ko foreach: { data: data.articles, as: 'articlerow' } -->
+    <div class="row">
+      <!-- ko foreach:{data:articlerow, as: 'article'} -->
+        <!-- ko if: article.title -->
+        <div class="col-md-4">
+          <div class="article"  data-bind="click:select">
+            <div class="article-holder">
+              <h3 data-bind="text:article.title"></h3>
+              <p data-bind="text:article.body"></p>
+              <div class="selected" data-bind="visible:isSelected()">
+              <span class="glyphicon glyphicon-ok"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /ko -->
+      <!-- /ko -->
+      </div>
+>>>>>>> 8112fb078934660adb1eb886dcbafc85ce7592c2
     <!-- /ko -->
   </script>
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8112fb078934660adb1eb886dcbafc85ce7592c2
   </head>
   <body>
       <header>
@@ -85,12 +115,21 @@
         <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
+<<<<<<< HEAD
           <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span> LIME Bootstrap</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/manual/">Manual</a></li>
             <li><a href="/appstore/">Appstore</a></li>
+=======
+          <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span>CPR</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+            <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" >Skicka <span data-bind="text:selectedArticles().length"></span> artikel</button>
+>>>>>>> 8112fb078934660adb1eb886dcbafc85ce7592c2
           </ul>
         </div><!--/.nav-collapse -->
 
@@ -100,12 +139,17 @@
 
         <div class="jumbotron">
         <div class="container">
+<<<<<<< HEAD
           <h1>Appstore</h1>
+=======
+          <h1>CRP</h1>
+>>>>>>> 8112fb078934660adb1eb886dcbafc85ce7592c2
         </div>
       </div>
     </header>
 
     
+<<<<<<< HEAD
   <div class="container" data-bind="template: { name: 'apps-template', afterRender: PostProcessingLogic}">
     <div class="row" id="loader">
       <div class ="col-md-3 col-md-offset-5">
@@ -120,6 +164,52 @@
     <script type="text/javascript" src="js/lbsmanual.js"></script>
     <script type="text/javascript" src="js/marked.js"></script>
 
+=======
+  <div class="container" data-bind="template: { name: 'article-template'}"></div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Dina uppgifter</h4>
+        </div>
+        <form role="form" action="/send" method="post">
+        <div class="modal-body">
+  
+            <div class="form-group">
+              <label for="exampleInputEmail1">Namn</label>
+              <input type="email" class="form-control" id="name" placeholder="Ange namn">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">E-post adress</label>
+              <input type="email" class="form-control" id="email" placeholder="Ange e-post">
+            </div>
+
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Spama gärna mig mer!
+              </label>
+            </div>
+
+           
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
+          <button type="submit" class="btn btn-primary">Skicka</button>
+         </form>
+      
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="web/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="web/js/knockout-3.0.0.js"></script>
+    <script type="text/javascript" src="web/js/knockout.mapping-latest.js"></script>
+    <script type="text/javascript" src="web/js/cpr.js"></script>
+>>>>>>> 8112fb078934660adb1eb886dcbafc85ce7592c2
     
   </body>
 </html>
