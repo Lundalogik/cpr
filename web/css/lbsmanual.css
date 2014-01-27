@@ -1,0 +1,106 @@
+body{
+background-color: #f2f2f2;
+font-family: 'Roboto', sans-serif ;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+font-family: 'Roboto', sans-serif ;
+font-weight: 100;
+	}
+
+.jumbotron{
+	background-color: #3498db;
+	border-color: transparent;
+color:#FFF;
+
+}
+
+.navbar-default {
+	background-color: #3498db;
+	border-color: transparent;
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: white;
+}
+
+.app{
+	
+	background-color: #FFF;
+	height: 200px;
+	margin: 10px;
+	padding: 10px;
+	cursor: pointer;
+
+
+	border-bottom-color: rgba(0, 0, 0, 0);
+border-bottom-left-radius: 1px;
+border-bottom-right-radius: 1px;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-left-color: rgba(0, 0, 0, 0);
+border-left-style: solid;
+border-left-width: 1px;
+border-right-color: rgba(0, 0, 0, 0);
+border-right-style: solid;
+border-right-width: 1px;
+border-top-color: rgba(0, 0, 0, 0);
+border-top-left-radius: 1px;
+border-top-right-radius: 1px;
+border-top-style: solid;
+border-top-width: 1px;
+box-shadow: rgba(0, 0, 0, 0.0784314) 0px 2px 1px 0px;
+}
+
+.app .carousel .item{
+	height: 100px;
+	background-color: #F1F6FF;
+}
+
+ .carousel .carousel-indicators {
+	bottom: 0px;
+
+}
+
+.carousel .carousel-indicators li {
+	border-color: #000;
+}
+.carousel .carousel-indicators .active {
+	background-color: #000;
+
+}
+
+.modal .modal-content{
+ -webkit-animation-delay: 0.3s;
+ -ms-animation-delay: 0.3s;
+}
+
+.modal .carousel .item{
+	height: 200px;
+}
+
+.modal .modal-dialog{
+	width: 80%;
+}
+
+.modal .download{
+
+	margin-right: 30px;
+}
+
+code{
+	white-space: inherit;
+}
+
+#loader{
+	padding-top:50px;
+}
+#loader img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

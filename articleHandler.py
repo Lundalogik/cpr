@@ -1,26 +1,6 @@
 import os
 import yaml
 
-class Article:
-  def __init__(self):
-    self.name = None
-    self.html = None
-    self.sections = []
-    self.link = None
-
-  def name(self):
-    return self.name
-
-  def html(self):
-    return self.html
-
-  def sections(self):
-    return self.sections
-
-  def link(self):
-    return self.link
-
-
 class ArticleLoader:
   def __init__(self):
     self.articles = []
@@ -31,12 +11,9 @@ class ArticleLoader:
       for subdirname in dirnames:
         print(subdirname)
         for articledir, articledirnames, articlefilenames in os.walk(os.path.join(dirname, subdirname)):
-          art = Article()
-          if 'article.json' in articlefilenames:
+          
+          if 'article.yaml' in articlefilenames:
             articleFileData = yaml.load(open(os.path.join(dirname, subdirname)  + '/article.yaml'))
-            art.name = articleFileData['name']
-            art.link = articleFileData['link']
-            art.section = articleFileData['sections']
-          self.articles.append(art)
+            self.articles.append(articleFileData)
 
     return self.articles
