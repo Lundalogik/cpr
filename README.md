@@ -10,4 +10,6 @@ To have a simple way of collecting information when salespeople are demonstratin
 
 ## Howto start the app
 
-Run server.py
+Run
+
+    foreman run
