@@ -3,79 +3,32 @@
   <head>
     <title>LimeBootstrap Appstore</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/lbsmanual.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="web/css/bootstrap.min.css" rel="stylesheet">
+    <link href="web/css/lbsmanual.css" rel="stylesheet">
+    <link href="web/css/animate.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-  <script type="text/html" id="apps-template">
-    <!-- ko foreach: { data: data.apps, as: 'approw' } -->
+  <script type="text/html" id="article-template">
+    <!-- ko foreach: { data: data.articles, as: 'articlerow' } -->
     <div class="row">
-      <!-- ko foreach:{ data:approw, as: 'app'} -->
-      <!-- ko if: app.name -->
-      <!-- An app placeholder -->
-      <div class="col-md-4">
-        <!-- Mini app view -->
-        <div class="app"  data-bind=" click:app.expandApp, css:{'animated fadeOut':app.expandedApp()}">
-          <!-- App images-->
-          <div class="carousel slide" data-ride="carousel" data-bind="attr:{id:'carousel-' + app.name()}">
-              <!-- Wrapper for slides -->
-              <div class="carousel-inner">
-                <!-- ko foreach: app.images -->
-                <div class="item" data-bind="style:{background:'#F1F6FF url(' + $data +') no-repeat center'}, css:{active: $index() == 0}" ></div>
-                <!-- /ko -->
+      <!-- ko foreach:{data:articlerow, as: 'article'} -->
+        <!-- ko if: article.title -->
+        <div class="col-md-4">
+          <div class="article"  data-bind="click:select">
+            <div class="article-holder">
+              <h3 data-bind="text:article.title"></h3>
+              <p data-bind="text:article.body"></p>
+              <div class="selected" data-bind="visible:isSelected()">
+              <span class="glyphicon glyphicon-ok"></span>
               </div>
-              
             </div>
-          <h3 data-bind="text: app.name"></h3>
-          <!-- ko if: app.info -->
-          <span class="label" data-bind="text:app.info.status(), css: app.statusColor"></span>
-          <!-- /ko -->
+          </div>
         </div>
-        <!--/ Mini app view -->
-
-        <!-- Expanded app view -->
-        <div class="modal" data-backdrop="static" data-bind="attr:{id:'expanded-' + app.name()}, click:app.closeApp">
-          <div class="modal-dialog" data-bind="click: function(){return true}, clickBubble: false">
-              <div class="modal-content" data-bind="css:{'animated bounceIn':app.expandedApp()}">
-                <div class="modal-header">
-                  <button type="button" class="close" data-bind="click:app.closeApp" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" >
-                    <span data-bind="text:app.name"></span>
-                    <button type="button" class="btn btn-success pull-right download" data-bind="click:app.download">
-                    <span class="glyphicon glyphicon-cloud-download"> </span>
-                    Download
-                    </button>
-            
-                  </h4>
-                  
-                </div>
-
-                <div class="modal-body" >
-                 <!-- App images-->
-                    <div class="carousel slide" data-ride="carousel" data-bind="attr:{id:'carousel-large' + app.name()}">
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                          <!-- ko foreach: app.images -->
-                          <div class="item" data-bind="style:{background:'#F1F6FF url(' + $data +') no-repeat center'}, css:{active: $index() == 0}" ></div>
-                          <!-- /ko -->
-                        </div>
-                      </div>
-                        
-                      <div data-bind="html:app.readme"></div>
-                </div>
-
-              </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-          </div><!-- /.modal -->
-          <!-- /Expanded app view -->
-
-      </div>
         <!-- /ko -->
       <!-- /ko -->
-
-    </div>
+      </div>
     <!-- /ko -->
   </script>
+
 
 
   </head>
@@ -85,12 +38,12 @@
         <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span> LIME Bootstrap</a>
+          <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span>CPR</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/manual/">Manual</a></li>
-            <li><a href="/appstore/">Appstore</a></li>
+            <li>
+            <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" >Skicka <span data-bind="text:selectedArticles().length"></span> artikel</button>
           </ul>
         </div><!--/.nav-collapse -->
 
@@ -100,26 +53,56 @@
 
         <div class="jumbotron">
         <div class="container">
-          <h1>Appstore</h1>
+          <h1>CRP</h1>
         </div>
       </div>
     </header>
 
     
-  <div class="container" data-bind="template: { name: 'apps-template', afterRender: PostProcessingLogic}">
-    <div class="row" id="loader">
-      <div class ="col-md-3 col-md-offset-5">
-        <img src="img/ajax-loader.gif" >
-      </div>
-      </div>
-  </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/knockout-3.0.0.js"></script>
-    <script type="text/javascript" src="js/knockout.mapping-latest.js"></script>
-    <script type="text/javascript" src="js/lbsmanual.js"></script>
-    <script type="text/javascript" src="js/marked.js"></script>
+  <div class="container" data-bind="template: { name: 'article-template'}"></div>
 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Dina uppgifter</h4>
+        </div>
+        <form role="form" action="/send" method="post">
+        <div class="modal-body">
+  
+            <div class="form-group">
+              <label for="exampleInputEmail1">Namn</label>
+              <input type="email" class="form-control" id="name" placeholder="Ange namn">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">E-post adress</label>
+              <input type="email" class="form-control" id="email" placeholder="Ange e-post">
+            </div>
+
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Spama gärna mig mer!
+              </label>
+            </div>
+
+           
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
+          <button type="submit" class="btn btn-primary">Skicka</button>
+         </form>
+      
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="web/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="web/js/knockout-3.0.0.js"></script>
+    <script type="text/javascript" src="web/js/knockout.mapping-latest.js"></script>
+    <script type="text/javascript" src="web/js/cpr.js"></script>
     
   </body>
 </html>
