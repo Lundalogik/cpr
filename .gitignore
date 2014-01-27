@@ -1,0 +1,9 @@
+*.env
+__pycache__
+venv
+env
+pypyenv
+*.pyc
+.idea/
+*.zip
+/web/temp/
