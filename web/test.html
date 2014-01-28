@@ -3,7 +3,6 @@
   <head>
     <title>LimeBootstrap Appstore</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/animate.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
   <style type="text/css">
     html{
@@ -24,7 +23,8 @@
      box-shadow: 2px 0px 23px 4px rgba(0,0,0,0.37);
      -webkit-transition: translate3d(0,0,0);
     }
-    section:nth-child(1){
+         }
+ section:nth-child(1){
       z-index: 10;
       background-color: #F0C330;
       
@@ -40,6 +40,21 @@
       left:400px;
       width: 100%
     }
+    
+.category {
+    font-family: futura;
+    font-size: 38px;
+    line-height: 56px;
+    margin: 1px 1px 1px 1px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+  }
+  #category {
+    background-color: #ccc;
+    width: 100px;
+    height: 100px;
+  }
 
   </style>
 
@@ -47,22 +62,37 @@
   </head>
   <body>
  
-      <section></section>
-      <section></section>
-      <section></section>
+    <section>
+        <div id="category">
+          <span class="category">
+          EVERYTHING <br>
+          YOU NEED <br>
+          TO KNOW <br>
+          ABOUT <br>
+          CRM
+          </span>
+        </div></section>
+    <section></section>
+    <section></section>
   
  
     <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> 
-    <script type="text/javascript" src="js/jquery.animate-enhanced.min.js"></script> 
+    <script type="text/javascript" src="web/js/jquery.animate-enhanced.min.js"></script> 
+        <script type="text/javascript" src="web/js/jquery.transit.min.js"></script> 
     <script type="text/javascript">
     	$(document).ready(function(){
+
+      window.onscroll = function (event) {
+        console.log("hej");
+      }
+
     		$("section").click(function(){
     		if(!$(this).hasClass("expanded")){
     		console.log($(".expanded").nextAll().css("background-color"))
 
 	    		$(this).nextAll().animate({
                         left: "+=700px"
-                  }, 1000);
+                  }, 300);
 				$(this).addClass("expanded")
 				$('html, body').animate({
                         scrollLeft: $(this).offset().left-50
@@ -72,7 +102,7 @@
 			}else{
 				$(this).nextAll().animate({
                         left: "-=700px"
-                  }, 1000);
+                  }, 300);
 				$(this).removeClass("expanded")
 					$('html, body').animate({
                         scrollLeft: $(this).offset().left-50
