@@ -31,12 +31,12 @@
     section:nth-child(2){
       z-index: 20 ;
       background-color: #239F85;
-      left:300px;
+      left:200px;
     }
     section:nth-child(3){
       z-index: 30;
       background-color: #F19B2C;
-      left:500px;
+      left:400px;
       width: 100%
     }
 
@@ -47,8 +47,8 @@
   <body>
  
       <section></section>
-      <section></section>
-      <section></section>
+     <!-- <section></section>
+      <section></section> -->
   
  
     <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> 
@@ -67,7 +67,7 @@
 
 	    		$(this).nextAll().animate({
                         left: "+=700px"
-                  }, 1000);
+                  }, 300);
 				$(this).addClass("expanded")
 				$('html, body').animate({
                         scrollLeft: $(this).offset().left-50
@@ -77,7 +77,7 @@
 			}else{
 				$(this).nextAll().animate({
                         left: "-=700px"
-                  }, 1000);
+                  }, 300);
 				$(this).removeClass("expanded")
 					$('html, body').animate({
                         scrollLeft: $(this).offset().left-50
