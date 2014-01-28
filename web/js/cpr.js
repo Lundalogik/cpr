@@ -4,6 +4,7 @@ var lbsappstore = {
 			var vm = new viewModel(data);
 			console.log(ko.mapping.toJS(vm));
 			ko.applyBindings(vm);
+
 		});
 	}
 };
@@ -32,7 +33,9 @@ var viewModel = function(rawData){
 	
 
 	self.data = ko.mapping.fromJS(rawData);
-
+	self.returnReturnArticles = ko.computed(function(){
+		return JSON.stringify(ko.toJSON(self.selectedArticles()))
+	});
 
 }
 
@@ -54,6 +57,7 @@ Lets get this party on the road
 $(function(){
 	$(document).ready(function(){
 		lbsappstore.init();
+
 	})
 	
 });

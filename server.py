@@ -1,9 +1,5 @@
 import bottle
-from bottle import response
-from bottle import redirect
-from bottle import static_file
-
-from bottle import request
+from bottle import response, redirect, static_file, request
 
 import os
 import json
@@ -20,7 +16,7 @@ cpr = bottle.app()
 
 @cpr.route('/')
 def send_static():
-    return static_file('/test.html', root='./')
+    return static_file('/index.html', root='./web')
 
 
 @cpr.route('/web/<filename:path>')
@@ -33,9 +29,12 @@ def get_articles():
 
 @cpr.route('/send',method='POST')
 def send_articles():
-    print("hepp")
-    return static_file('/index.html', root='./web')
-    #email = request.forms.get('email')
-    # SendEmail("smtp.mandrillapp.com",os.environ["SMTP_USER"], os.environ["SMTP_PASSWORD"],  email ,"info@lundalogik.se", articles)
+    email = request.forms.get('email')
+    name = request.forms.get('name')
+    articles = json.loads(request.forms.get('articles'))
+    print(articles)
+    SendEmail("smtp.mandrillapp.com",os.environ["SMTP_USER"], os.environ["SMTP_PASSWORD"],  email ,"info@lundalogik.se", articles)
 
+    redirect("/")
+    
 cpr.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))

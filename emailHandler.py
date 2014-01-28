@@ -12,14 +12,15 @@ class SendEmail:
 		self.to_email_address = to_email_address
 		self.from_email_address = from_email_address
 		self.selected_articles = articles
+		print(self.selected_articles['articles']['title'])
 		self.send_mail()
 
 	def send_mail(self):
 		msg = MIMEMultipart()
 		msg['From'] = self.from_email_address
 		msg['To'] = self.to_email_address
-		msg['Subject'] = 'Hello from Python!'
-		message = 'here is the email'
+		msg['Subject'] = 'All din info'
+		message = "test"#self.selected_articles['articles'][0]['title'] 
 		msg.attach(MIMEText(message))
 		mailserver = smtplib.SMTP(self.email_server, 587)
 		# identify ourselves to smtp client
