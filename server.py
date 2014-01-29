@@ -18,6 +18,10 @@ cpr = bottle.app()
 def send_static():
     return static_file('/index.html', root='./web')
 
+@cpr.route('/test')
+def send_static():
+    return static_file('/test.html', root='./web')
+
 
 @cpr.route('/web/<filename:path>')
 def send_static(filename):
