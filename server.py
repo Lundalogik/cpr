@@ -33,12 +33,20 @@ def get_articles():
 
 @cpr.route('/send',method='POST')
 def send_articles():
-    email = request.forms.get('email')
-    name = request.forms.get('name')
-    articles = json.loads(request.forms.get('articles'))
-    print(articles)
-    SendEmail("smtp.mandrillapp.com",os.environ["SMTP_USER"], os.environ["SMTP_PASSWORD"],  email ,"info@lundalogik.se", articles)
+    email = {}
+    email['from_address'] = "info@lundalogik.se"
+    email['to_address'] = request.forms.get('email')
+    email['server'] = "smtp.mandrillapp.com"
+    email['user'] = os.environ["SMTP_USER"]
+    email['password'] = os.environ["SMTP_PASSWORD"]
+    print(os.environ["SMTP_PASSWORD"])
+    print(email)
+    selected_articles = json.loads(request.forms.get('articles'))
 
+    name = request.forms.get('name')
+
+    SendEmail(email,selected_articles)
+    
     redirect("/")
     
 cpr.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))

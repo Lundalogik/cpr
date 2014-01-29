@@ -34,7 +34,7 @@ var viewModel = function(rawData){
 
 	self.data = ko.mapping.fromJS(rawData);
 	self.returnReturnArticles = ko.computed(function(){
-		return JSON.stringify(ko.toJSON(self.selectedArticles()))
+		return JSON.stringify({articles:ko.toJS(self.selectedArticles())})
 	});
 
 }
