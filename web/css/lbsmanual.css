@@ -69,7 +69,7 @@ box-shadow: rgba(0, 0, 0, 0.0784314) 0px 2px 1px 0px;
   border-bottom: 50px solid green;
   border-left: 50px solid transparent;
 }
-.article .selected span{
+.article .selected i{
 	 position: absolute;
 	color: #FFF;
 	top: 26px;

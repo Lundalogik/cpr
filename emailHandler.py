@@ -41,7 +41,7 @@ class SendEmail:
               <body>
         """
         for idx, article in enumerate(self.selected_articles['articles']):           
-            html += "<div style='background-color:" + article['link'] +"'>"
+            html += "<div style='background-color:" + article['color'] +"'>"
             html += "<h1>" + article['title']+ "</h1>"
             html += "<p>" + article['body'] + "</p>"
             html += "<a href='" + article['link'] + "'>Läs mer!</a>"
