@@ -1,240 +1,88 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
     <title>LimeBootstrap Appstore</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
     <link href="css/font-awesome.min.css" rel="stylesheet">
-  <style type="text/css">
-    html{
-	    height: 100%;
-	    margin: 0;
-	    padding: 0;
-    }
-
-
-
-
-    body{
-      background:#dddddd;
-      background-color: #FFF;
-      width: 100%;
-      height:100%;
-      margin: 0;
-	    padding: 0;
-          position:-webkit-sticky;
-    position:sticky;
-    }
-    section{
-      height: 768px;
-      width: 1024px;
-     position: absolute;
-     box-shadow: -20px 0px 30px 0px rgba(0,0,0,0.25);
-     -webkit-transition: translate3d(0,0,0);
-     padding: 30px 0px 0px 30px;
-    }
-
- section:nth-child(1){
-      z-index: 10;
-      background-color: #BBD500;
-      /*background: linear-gradient(135deg, #BBD500 20%,#D0EC00 100%);*/
-    }
-
-    section:nth-child(2){
-      z-index: 20 ;
-      background-color: #60AC00;
-      left:340px;
-      /*background: linear-gradient(135deg, #60ac00 20%,#8EC500 100%);*/
-    }
-    section:nth-child(3){
-      z-index: 30;
-      background-color: #00882C;
-      left:680px;
-      width: 100%;
-      /*background: linear-gradient(135deg, #00882C 20%,#36AA00 100%);*/
-    }
-    
-.category-a {
-    font-family: roboto,helvetica,arial;
-    font-weight: 100;
-    font-size: 48px;
-    line-height: 60px;
-    margin: 70px 0px 0px 0px;
-    position: absolute;
-    color: rgb(159, 180, 6);
-  }
-  .category-b {
-    font-family: roboto,helvetica,arial;
-    font-weight: 100;
-    font-size: 48px;
-    line-height: 60px;
-    margin: 70px 0px 0px 0px;
-    position: absolute;
-    color: rgb(77, 138, 0);
-  }
-  .category-c {
-    font-family: roboto,helvetica,arial;
-    font-weight: 100;
-    font-size: 48px;
-    line-height: 60px;
-    margin: 70px 0px 0px 0px;
-    position: absolute;
-    color: rgb(0, 100, 56);
-  }
-.category-1 {
-    font-family: roboto,helvetica,arial;
-    font-weight: 100;
-    font-size: 48px;
-    line-height: 60px;
-    margin: 249px 0px 0px 0px;
-    position: absolute;
-    color: rgb(255,255,255);
-  }
-  .category-2 {
-    font-family: roboto,helvetica,arial;
-    font-weight: 100;
-    font-size: 48px;
-    line-height: 60px;
-    margin: 191px 0px 0px 0px;
-    position: absolute;
-    color: rgb(255,255,255);
-  }
-  .category-3 {
-    font-family: roboto,helvetica,arial;
-    font-weight: 100;
-    font-size: 48px;
-    line-height: 60px;
-    margin: 131px 0px 0px 0px;
-    position: absolute;
-    color: rgb(255,255,255);
-  }
-  .select-all-a {
-    font-family: roboto;
-    font-size: 14px;
-    line-height: 17px;
-    font-weight: 300;
-    padding: 7px 7px 7px 7px;
-    border-radius: 3px;
-    color: #000000;
-    position: absolute;
-    top: 422px;
-    border: solid 1px #000000;
-  }
-    .select-all-a:hover {
-    color: #fff;
-    background-color: #000;
-    border: solid 1px #000000;
-  }
-
-  .select-all-b {
-    font-family: roboto;
-    font-size: 14px;
-    line-height: 17px;
-    font-weight: 300;
-    padding: 7px 7px 7px 7px;
-    border-radius: 3px;
-    color: #000000;
-    position: absolute;
-    top: 305px;
-    border: solid 1px #000000;
-  }
-    .select-all-b:hover {
-    color: #fff;
-    background-color: #000;
-    border: solid 1px #000000;
-  }
-
-  .select-all-c {
-    font-family: roboto;
-    font-size: 14px;
-    line-height: 17px;
-    font-weight: 300;
-    padding: 7px 7px 7px 7px;
-    border-radius: 3px;
-    color: #000000;
-    position: absolute;
-    top: 244px;
-    border: solid 1px #000000;
-  }
-    .select-all-c:hover {
-    color: #fff;
-    background-color: #000;
-    border: solid 1px #000000;
-  }
-#diag-a {
-    transition-property: all;
-    border-bottom-width: 798px;
-    border-top-color: transparent;
-    position: absolute;
-    left: -203px;
-    top: -3px;
-    border-style: solid;
-    width: 0;
-    height: 0;
-    border-left-width: 200px;
-    border-left-color: transparent;
-    transition-duration: 2s;
-    border-bottom-color: rgba(0, 0, 0, 0.08);
-    border-right-color: rgba(0, 0, 0, 0.08);
-}
-
-  </style>
+    <link href="test.css" rel="stylesheet">
   </head>
   <body>
  
-
-
-
-
-
-    <section>
-      <span class="category-a">
-          ALLT DU <br>
-          BEHOVER <br>
-          VETA
-      </span>
-      <span class="category-1">
-          OM <br>
-          CRM
-      </span>
-      <span class="select-all-a">
-      Vill du ha allt har?
-      <span>
-    </section>
+  <div id="main-container">
+    <section class="crm-panel panel">
+      <a href="#" class="close-button"><i class="fa fa-cog"></i></a>
+      <div class="diag-a"></div>
+      <div class="panel-container">
+        <header class="panel-head">
+          <h1 class="panel-heading">
+            ALLT DU<br />
+            BEHÖVER<br />
+            VETA<br />
+            <span class="highlight">
+              OM<br />
+              CRM
+            </span>
+          </h1>
+          <a href="#" class="select-all">
+            Vill du ha allt här?
+          </a>
+        </header>
+        <div class="panel-body">
+          lite test-text
+        </div>
+      </div>
+    </section><!-- Layout
    
 
-    <section>
-     <div id="diag-a"></div>
-     <span class="category-b">
-          BLI BATTRE <br>
-          PA ATT
-     </span>
-     <span class="category-2">
-          SALJA
-     </span>
-           <span class="select-all-b">
-      Vill du ha allt har?
-      <span>
-    </section>
- 
+    --><section class="sales-panel panel">
+      <a href="#" class="close-button"><i class="fa fa-cog"></i></a>
+      <div class="diag-a"></div>
+      <div class="panel-container">
+        <header class="panel-head">
+          <h1 class="panel-heading">
+            BLI BÄTTRE<br />
+            PÅ ATT<br />
+            <span class="highlight">
+              SÄLJA
+            </span>
+          </h1>
+          <a href="#" class="select-all">
+            Vill du ha allt här?
+          </a>
+        </header>
+        <div class="panel-body">
+          lite test-text
+        </div>
+      </div>
+    </section><!-- Layout
    
-    <section>
-          <div id="diag-a"></div>
-      <span class="category-c">
-          VARA
-      </span>
-      <span class="category-3">
-        PRODUKTER
-      </span>
-      <span class="select-all-c">
-      Vill du ha allt har?
-      <span>
+
+    --><section class="products-panel panel">
+      <a href="#" class="close-button"><i class="fa fa-cog"></i></a>
+      <div class="panel-container">
+        <header class="panel-head">
+          <h1 class="panel-heading">
+            VÅRA<br />
+            <span class="highlight">
+              PRODUKTER
+            </span>
+          </h1>
+          <a href="#" class="select-all">
+            Vill du ha allt här?
+          </a>
+        </header>
+        <div class="panel-body">
+          lite test-text
+        </div>
+      </div>
     </section>
 
 
-
+</div>
 
 
 
@@ -243,44 +91,39 @@
  
     <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> 
     <script type="text/javascript" src="web/js/jquery.animate-enhanced.min.js"></script> 
-        <script type="text/javascript" src="web/js/jquery.transit.min.js"></script> 
+    <script type="text/javascript" src="web/js/jquery.transit.min.js"></script> 
     <script type="text/javascript">
-    	$(document).ready(function(){
+      $(function() {
+      	$(".panel").click(function(e) {
+          if (!e.isDefaultPrevented()) {
+            var me = $(this);
+            if (!me.hasClass("expanded")) {
+              me.addClass("expanded");
+              $('#main-container').animate({scrollLeft: me.offset().left}, {duration: 500, easing: 'linear'});
+            }
+          }
+      	});
 
-      window.onscroll = function (event) {
-        console.log("hej");
-      }
+        $(".close-button").click(function(e) {
+          var panel = $(this).closest('.panel');
+          if (panel.hasClass('expanded')) {
+            e.preventDefault();
+            $('#main-container').animate({scrollLeft: 0}, {duration: 500, easing: 'linear'});
+            if (panel.hasClass('products-panel')) {
+              setTimeout(function() {
+                panel.removeClass("expanded");
+              }, 50);
+            } else {
+              panel.removeClass("expanded");
+            }
+          }
+        });
 
-    	$("section").click(function(){
-    		if(!$(this).hasClass("expanded")){
-    		console.log($(".expanded").nextAll().css("background-color"))
-
-	    		$(this).nextAll().animate({
-                        left: "+=700px"
-                  }, 200);
-				$(this).addClass("expanded")
-				$('html, body').animate({
-                        scrollLeft: $(this).offset().left-0
-                 }, 100);
-                    
-				
-			}else{
-				$(this).nextAll().animate({
-                        left: "-=700px"
-                  }, 200);
-				$(this).removeClass("expanded")
-					$('html, body').animate({
-                        scrollLeft: $(this).offset().left-0
-                 }, 100);
-			}
-			});
-			
-
-	    		
-    		
-
-   });
-    </script>  
+        $(".select-all").click(function(e) {
+          e.preventDefault();
+        });
+      });
+    </script>
 
   </body>
 </html>
