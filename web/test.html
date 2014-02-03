@@ -2,22 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>LimeBootstrap Appstore</title>
+    <title>LLAB CPR</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="test.css" rel="stylesheet">
+    <link href="web/css/font-awesome.min.css" rel="stylesheet">
+    <link href="web/test.css" rel="stylesheet">
   </head>
   <body>
  
   <div id="main-container">
     <section class="crm-panel panel">
       <a href="#" class="close-button"><i class="fa fa-arrow-left"></i></a>
-      <div class="diag-a"></div>
       <div class="panel-container">
         <header class="panel-head">
+        
           <h1 class="panel-heading">
             ALLT DU<br />
             BEHÖVER<br />
@@ -32,9 +32,13 @@
           </a>
         </header>
         <div class="panel-body">
-          lite test-text
-        </div>
+	        <div class="panel-body-holder">
+		          lite test-text
+		    <div>
+	          
+	    </div>
       </div>
+        <div class="diag-a"></div>
     </section><!-- Layout
    
 
@@ -75,6 +79,7 @@
             Vill du ha allt här?
           </a>
         </header>
+        
         <div class="panel-body">
           lite test-text
         </div>
@@ -91,13 +96,32 @@
  
     <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> 
     <script type="text/javascript" src="web/js/jquery.animate-enhanced.min.js"></script> 
-    <script type="text/javascript" src="web/js/jquery.transit.min.js"></script> 
+    <script type="text/javascript" src="web/js/jquery.transit.min.js"></script>
+    <script type="text/javascript" src="web/js/oridomi.min.js"></script>  
     <script type="text/javascript">
       $(function() {
+      	
+      	var oriDomiSetup = {
+			  	vPanels: 		2,
+			  	speed:          50,  // folding duration in ms
+			  	perspective:    800,   // smaller values exaggerate 3D distortion
+			
+		};
+		
+		var panels = ["crm-panel", "sales-panel", "products-panel"];
+      
+      	$.each(panels, function(key, val){
+	      	panels[val] = new OriDomi('.' + val +' .panel-body',oriDomiSetup ).accordion(100);
+	      	
+      	});
+  
+
       	$(".panel").click(function(e) {
+      	  var classNames = $(this).attr("class").split(' ');
           if (!e.isDefaultPrevented()) {
             var me = $(this);
-            if (!me.hasClass("expanded")) {
+           panels[classNames[0]].wait(1000).setSpeed(1500).accordion(0);
+           if (!me.hasClass("expanded")) {
               me.addClass("expanded");
               $('#main-container').animate({scrollLeft: me.offset().left}, {duration: 500, easing: 'linear'});
             }

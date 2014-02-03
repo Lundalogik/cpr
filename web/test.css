@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background: linear-gradient(135deg, #c3c3c3 0%, #ebebeb 52.65%);
 }
 
 * {
@@ -37,6 +38,7 @@ body {
 .panel.expanded+.panel {
   box-shadow: -20px 0px 30px 0px rgba(0,0,0,0.1);
 }
+
 
 .diag-a {
   border-bottom-color: rgba(0, 0, 0, 0.08);
@@ -91,11 +93,10 @@ body {
 .panel-container {
   display: inline-block;
   height: 768px;
-  width: 1024px;
+  width: 341px;
 }
 
 .crm-panel {
-  background-color: #BBD500;
   z-index: 10;
   /*background: linear-gradient(135deg, #BBD500 20%,#D0EC00 100%);*/
 }
@@ -105,8 +106,17 @@ body {
 .crm-panel .panel-heading {
   color: rgb(159, 180, 6);
 }
+.crm-panel .panel-container {
+  color: rgb(159, 180, 6);
+  background: #BBD500;
+}
+
+.crm-panel .panel-body{
+	background-color: #BBD500;
+}
+
 .sales-panel {
-  background-color: #60AC00;
+
   z-index: 20;
   /*background: linear-gradient(135deg, #60ac00 20%,#8EC500 100%);*/
 }
@@ -116,8 +126,17 @@ body {
 .sales-panel .panel-heading {
   color: rgb(77, 138, 0);
 }
+.sales-panel .panel-container {
+  color: rgb(159, 180, 6);
+  background: #60AC00;
+}
+
+.sales-panel .panel-body{
+  background: #60AC00;
+}
+
 .products-panel {
-  background-color: #00882C;
+
   width: 342px;
   z-index: 30;
   /*background: linear-gradient(135deg, #00882C 20%,#36AA00 100%);*/
@@ -127,6 +146,15 @@ body {
 }
 .products-panel .panel-heading {
   color: rgb(0, 100, 56);
+}
+
+.products-panel .panel-container {
+  color: rgb(159, 180, 6);
+  background: #00882C;
+}
+
+.products-panel .panel-body{
+  background: #00882C;
 }
 
 .panel-head {
@@ -169,6 +197,9 @@ body {
   display: block;
   left: 342px;
   position: absolute;
-  top: 30px;
-  width: 650px;
+  width: 690px;
+  height: 100%;
+
 }
+
+
