@@ -11,13 +11,20 @@
     <link href="web/test.css" rel="stylesheet">
   </head>
   <body>
+
+      <section class="overlay">
+      <h1>VÅRA <br />BROSCHYRER </h1>
+          <a href="#" class="select-button">Välj</a>
+    </section>
  
   <div id="main-container">
+
     <section class="crm-panel panel">
-      <a href="#" class="close-button"><i class="fa fa-arrow-left"></i></a>
+
       <div class="panel-container">
+        <a href="#" class="close-button"><i class="fa fa-arrow-left"></i></a>
         <header class="panel-head">
-        
+
           <h1 class="panel-heading">
             ALLT DU<br />
             BEHÖVER<br />
@@ -32,20 +39,17 @@
           </a>
         </header>
         <div class="panel-body">
-	        <div class="panel-body-holder">
+	
 		          lite test-text
-		    <div>
-	          
-	    </div>
+         </div>
       </div>
         <div class="diag-a"></div>
     </section><!-- Layout
    
 
     --><section class="sales-panel panel">
-      <a href="#" class="close-button"><i class="fa fa-arrow-left"></i></a>
-      <div class="diag-a"></div>
       <div class="panel-container">
+            <a href="#" class="close-button"><i class="fa fa-arrow-left"></i></a>
         <header class="panel-head">
           <h1 class="panel-heading">
             BLI BÄTTRE<br />
@@ -58,16 +62,18 @@
             Vill du ha allt här?
           </a>
         </header>
+
         <div class="panel-body">
           lite test-text
         </div>
       </div>
+        <div class="diag-a"></div>
     </section><!-- Layout
    
 
     --><section class="products-panel panel">
-      <a href="#" class="close-button"><i class="fa fa-arrow-left"></i></a>
       <div class="panel-container">
+       <a href="#" class="close-button"><i class="fa fa-arrow-left"></i></a>
         <header class="panel-head">
           <h1 class="panel-heading">
             VÅRA<br />
@@ -84,8 +90,9 @@
           lite test-text
         </div>
       </div>
+      <div class="diag-a"></div>
     </section>
-
+    
 
 </div>
 
@@ -98,8 +105,10 @@
     <script type="text/javascript" src="web/js/jquery.animate-enhanced.min.js"></script> 
     <script type="text/javascript" src="web/js/jquery.transit.min.js"></script>
     <script type="text/javascript" src="web/js/oridomi.min.js"></script>  
+       <script type="text/javascript" src="web/js/blur.min.js"></script>  
     <script type="text/javascript">
       $(function() {
+
       	
       	var oriDomiSetup = {
 			  	vPanels: 		2,
@@ -130,8 +139,10 @@
 
         $(".close-button").click(function(e) {
           var panel = $(this).closest('.panel');
+          var classNames = panel.attr("class").split(' ');
           if (panel.hasClass('expanded')) {
             e.preventDefault();
+            panels[classNames[0]].setSpeed(700).accordion(90);
             $('#main-container').animate({scrollLeft: 0}, {duration: 500, easing: 'linear'});
             if (panel.hasClass('products-panel')) {
               setTimeout(function() {

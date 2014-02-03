@@ -10,11 +10,49 @@ body {
 }
 
 #main-container {
+
   display: inline-block;
   height: 768px;
   overflow: hidden;
   white-space: nowrap;
   width: 1024px;
+}
+
+.overlay{
+  font-family: roboto,helvetica,arial;
+  position: absolute;
+  height: 768px;
+  width: 1024px;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(0,0,0,0.75);
+}
+
+.overlay h1{
+color: #FFF;
+  position: absolute;
+  left: 322px;
+  top:204px;
+  text-align: center;
+  font-size: 72px;
+   font-weight: 300;
+}
+
+.select-button{
+  position: absolute;
+  left: 502px;
+  top:474px;
+  border-radius: 100px;
+  color: #000;
+  background-color: #FFF;
+  display: inline-block;
+  font-family: roboto,helvetica,arial;
+  font-size: 34px;
+  font-weight: 300;
+  padding: 10px;
+  text-decoration: none;
+
 }
 
 .panel {
@@ -85,8 +123,9 @@ body {
 }
 .close-button:active {
   color: white;
+
 }
-.panel.expanded>.close-button {
+.panel.expanded .panel-container >.close-button {
   opacity: 1;
 }
 
@@ -100,7 +139,8 @@ body {
   z-index: 10;
   /*background: linear-gradient(135deg, #BBD500 20%,#D0EC00 100%);*/
 }
-.crm-panel:not(.expanded):active {
+.crm-panel:not(.expanded) .panel-container:active {
+
   background-color: rgba(0, 0, 0, 0.2);
 }
 .crm-panel .panel-heading {
@@ -120,7 +160,7 @@ body {
   z-index: 20;
   /*background: linear-gradient(135deg, #60ac00 20%,#8EC500 100%);*/
 }
-.sales-panel:not(.expanded):active {
+.sales-panel:not(.expanded) .panel-container:active {
   background-color: rgba(0, 0, 0, 0.2);
 }
 .sales-panel .panel-heading {
@@ -141,7 +181,7 @@ body {
   z-index: 30;
   /*background: linear-gradient(135deg, #00882C 20%,#36AA00 100%);*/
 }
-.products-panel:not(.expanded):active {
+.products-panel:not(.expanded) .panel-container:active {
   background-color: rgba(0, 0, 0, 1.2);
 }
 .products-panel .panel-heading {
