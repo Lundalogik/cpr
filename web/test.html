@@ -12,12 +12,12 @@
   </head>
   <body>
 
-    <section class="overlay" id="start-overlay">
+    <section class="overlay" id="start-overlay" data-bind="fadeVisible:showStartOverlay()">
     <h1>VÅRA <br />BROSCHYRER </h1>
-        <a href="#" class="select-button" id="start-button">Välj</a>
+        <a href="#" class="select-button" id="start-button" data-bind="click:function() {showStartOverlay(false)}">Välj</a>
   </section>
 
-  <section class="overlay" id="checkout-overlay">
+  <section class="overlay" id="checkout-overlay" data-bind="fadeVisible:showCheckoutOverlay()">
     <h1>SKICKA <br />5 BROSCHYRER? </h1>
     <form id="submitForm"role="form" action="/send" method="post" enctype="multipart/form-data">
       <input type="email" class="form-control" id="email" name="email" placeholder="Ange e-post">
@@ -26,7 +26,7 @@
     </section>
  
   <div id="main-container">
-  <a href="#" class="checkout">
+  <a href="#" class="checkout" data-bind="fadeVisible:!(showStartOverlay() || showCheckoutOverlay()), click:function(){showCheckoutOverlay(true)}">
   Skicka?
   </a>
     <section class="crm-panel panel">
@@ -111,75 +111,24 @@
   
  
     <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> 
+    <script type="text/javascript" src="web/js/knockout-3.0.0.js"></script>
+    <script type="text/javascript" src="web/js/knockout.mapping-latest.js"></script>
+    <script type="text/javascript" src="web/js/jquery.animate-enhanced.min.js"></script> 
     <script type="text/javascript" src="web/js/jquery.animate-enhanced.min.js"></script> 
     <script type="text/javascript" src="web/js/jquery.transit.min.js"></script>
     <script type="text/javascript" src="web/js/oridomi.min.js"></script>  
-       <script type="text/javascript" src="web/js/blur.min.js"></script>  
+    <script type="text/javascript" src="web/js/cpr.js"></script>
     <script type="text/javascript">
       $(function() {
 
       	
-      	var oriDomiSetup = {
-			  	vPanels: 		2,
-			  	speed:          50,  // folding duration in ms
-			  	perspective:    800,   // smaller values exaggerate 3D distortion
-			
-		};
-		
-		var panels = ["crm-panel", "sales-panel", "products-panel"];
-      
-      	$.each(panels, function(key, val){
-	      	panels[val] = new OriDomi('.' + val +' .panel-body',oriDomiSetup ).accordion(100);
-	      	
-      	});
-  
 
-      	$(".panel").click(function(e) {
-      	  var classNames = $(this).attr("class").split(' ');
-          if (!e.isDefaultPrevented()) {
-            var me = $(this);
-           panels[classNames[0]].wait(1000).setSpeed(1500).accordion(0);
-           if (!me.hasClass("expanded")) {
-              me.addClass("expanded");
-              $('#main-container').animate({scrollLeft: me.offset().left}, {duration: 500, easing: 'linear'});
-            }
-          }
-      	});
-
-        $(".close-button").click(function(e) {
-          var panel = $(this).closest('.panel');
-          var classNames = panel.attr("class").split(' ');
-          if (panel.hasClass('expanded')) {
-            e.preventDefault();
-            panels[classNames[0]].setSpeed(700).accordion(90);
-            $('#main-container').animate({scrollLeft: 0}, {duration: 500, easing: 'linear'});
-            if (panel.hasClass('products-panel')) {
-              setTimeout(function() {
-                panel.removeClass("expanded");
-              }, 50);
-            } else {
-              panel.removeClass("expanded");
-            }
-          }
-        });
+      	
 
         $(".select-all").click(function(e) {
           e.preventDefault();
         });
 
-        $("#start-button").click(function(e) {
-          var me = $(this);
-          e.preventDefault();
-          me.parent().fadeOut();
-
-        });
-
-        $(".checkout").click(function(e) {
-          var me = $(this);
-          e.preventDefault();
-          $("#checkout-overlay").fadeIn();
-
-        });
       });
     </script>
 
