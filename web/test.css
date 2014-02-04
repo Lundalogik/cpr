@@ -25,24 +25,54 @@ body {
   width: 1024px;
   left: 0;
   top: 0;
-  z-index: 100;
-  background-color: rgba(0,0,0,0.75);
+  z-index: 9999;
+  background-color: rgba(0,0,0,0.85);
+}
+
+#checkout-overlay{
+  display: none;
 }
 
 .overlay h1{
 color: #FFF;
   position: absolute;
-  left: 322px;
-  top:204px;
+  left: 302px;
+  top:174px;
   text-align: center;
   font-size: 72px;
    font-weight: 300;
 }
 
+.overlay #email{
+  position: absolute;
+  left: 373px;
+  top:454px;
+  height: 50px;
+  width:400px;
+  background-color: transparent;
+  border: 3px solid #FFF;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 24px;
+      font-family: roboto,helvetica,arial;
+      font-weight: 300;
+  color:#FFF;
+}
+
+.overlay #checkout-button{
+  top:534px;
+  left: 507px;
+
+}
+
+input:focus{
+ outline: none;
+}
+
 .select-button{
   position: absolute;
-  left: 502px;
-  top:474px;
+  left: 482px;
+  top:454px;
   border-radius: 100px;
   color: #000;
   background-color: #FFF;
@@ -52,6 +82,11 @@ color: #FFF;
   font-weight: 300;
   padding: 10px;
   text-decoration: none;
+}
+
+.select-button:active{
+  color: #FFF;
+  background-color: #000;
 
 }
 
@@ -242,4 +277,21 @@ color: #FFF;
 
 }
 
-
+.checkout{
+  text-decoration: none;
+  position: absolute;
+  right: 30px;
+  top:20px;
+  background-color: rgba(0,0,0,0.8);
+  border-radius:50px;
+  z-index: 1000;
+  color:#FFF;
+    font-family: roboto,helvetica,arial;
+      font-weight: 300;
+  font-size: 24px;
+  padding: 10px;
+}
+.checkout:active{
+  color:#000;
+  background-color: rgba(255,255,255,0.8);
+}

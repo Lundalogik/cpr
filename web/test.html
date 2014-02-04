@@ -12,15 +12,24 @@
   </head>
   <body>
 
-      <section class="overlay">
-      <h1>VÅRA <br />BROSCHYRER </h1>
-          <a href="#" class="select-button">Välj</a>
+    <section class="overlay" id="start-overlay">
+    <h1>VÅRA <br />BROSCHYRER </h1>
+        <a href="#" class="select-button" id="start-button">Välj</a>
+  </section>
+
+  <section class="overlay" id="checkout-overlay">
+    <h1>SKICKA <br />5 BROSCHYRER? </h1>
+    <form id="submitForm"role="form" action="/send" method="post" enctype="multipart/form-data">
+      <input type="email" class="form-control" id="email" name="email" placeholder="Ange e-post">
+        <a href="#" class="select-button" id="checkout-button">Skicka</a>
+    </form>
     </section>
  
   <div id="main-container">
-
+  <a href="#" class="checkout">
+  Skicka?
+  </a>
     <section class="crm-panel panel">
-
       <div class="panel-container">
         <a href="#" class="close-button"><i class="fa fa-arrow-left"></i></a>
         <header class="panel-head">
@@ -156,6 +165,20 @@
 
         $(".select-all").click(function(e) {
           e.preventDefault();
+        });
+
+        $("#start-button").click(function(e) {
+          var me = $(this);
+          e.preventDefault();
+          me.parent().fadeOut();
+
+        });
+
+        $(".checkout").click(function(e) {
+          var me = $(this);
+          e.preventDefault();
+          $("#checkout-overlay").fadeIn();
+
         });
       });
     </script>
