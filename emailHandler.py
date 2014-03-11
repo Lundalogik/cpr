@@ -2,8 +2,9 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+
 class SendEmail:
-    def __init__(self,email, articles):
+    def __init__(self, email, articles):
         print(email)
         self.email = email
         self.selected_articles = articles
@@ -14,7 +15,7 @@ class SendEmail:
         msg['From'] = self.email['from_address']
         msg['To'] = self.email['to_address']
         msg['Subject'] = 'All din info'
-       
+
         part1 = MIMEText(self.build_text_body(), 'plain')
         part2 = MIMEText(self.build_html_body(), 'html')
 
@@ -30,19 +31,20 @@ class SendEmail:
         mailserver.ehlo()
         mailserver.login(self.email['user'], self.email['password'])
 
-        mailserver.sendmail(self.email['from_address'],self.email['to_address'], msg.as_string())
+        mailserver.sendmail(self.email['from_address'], self.email['to_address'], msg.as_string())
 
         mailserver.quit()
 
     def build_html_body(self):
-        html= """\
+        html = """\
             <html>
               <head></head>
               <body>
         """
-        for idx, article in enumerate(self.selected_articles['articles']):           
-            html += "<div style='background-color:" + article['color'] +"'>"
-            html += "<h1>" + article['title']+ "</h1>"
+
+        for idx, article in enumerate(self.selected_articles['articles']):
+            html += "<div style='background-color:" + article['color'] + "'>"
+            html += "<h1>" + article['title'] + "</h1>"
             html += "<p>" + article['body'] + "</p>"
             html += "<a href='" + article['link'] + "'>Läs mer!</a>"
             html += "</div>"
@@ -54,4 +56,4 @@ class SendEmail:
         return html
 
     def build_text_body(self):
-        return "Hi!\nHow are you?\nHere is the link you wanted:\nhttp://www.python.org"
+        return r'Hi!\nHow are you?\nHere is the link you wanted:\nhttp://www.python.org'

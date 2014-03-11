@@ -8,7 +8,6 @@ var lbsappstore = {
 		});
 	}
 };
-
 /**
 ViewModel
 */
@@ -22,32 +21,32 @@ var viewModel = function(rawData){
 			// App show be shown from start
 			if (location.hash == "#" + app.name){
 				app.expandedApp= ko.observable(true);
-				rawData.expandedApp = app.name
+				rawData.expandedApp = app.name;
 			} else{
 				app.expandedApp= ko.observable(false);
 			}
 			
 			app.expandApp = function(app){
 				app.expandedApp(true);
-				location.hash = app.name()
+				location.hash = app.name();
 				$("#expanded-"+app.name()).modal('show');
-			}
+			};
 			app.closeApp = function(app){
 				app.expandedApp(false);
 				location.hash = '';
 				$("#expanded-"+app.name()).modal('hide');
-			}
+			};
 			app.download = function(){
-				location.href= '/api/apps/' + app.name + '/download/'
-			}
+				location.href= '/api/apps/' + app.name + '/download/';
+			};
 			
 			if(app.info){
 				if(app.info.status === 'Release'){
-					app.statusColor = "label-success"
+					app.statusColor = "label-success";
 				}else if(app.info.status === 'Beta'){
-					app.statusColor = "label-warning"
+					app.statusColor = "label-warning";
 				}else if(app.info.status === 'Development'){
-					app.statusColor = "label-danger"
+					app.statusColor = "label-danger";
 				}
 			}
 				
@@ -56,12 +55,13 @@ var viewModel = function(rawData){
 	});
 	PostProcessingLogic = function(elements){
 		$(elements).find("#expanded-"+rawData.expandedApp).modal('show');
-	}
+	};
 
 
 	rawData.apps =	listToMatrix(rawData.apps, 3);
 	self.data = ko.mapping.fromJS(rawData);
-}
+};
+
 
 function listToMatrix(list, elementsPerSubArray) {
     var matrix = [], i, k;
@@ -83,11 +83,11 @@ $(function(){
 		lbsappstore.init();
 
 		if ($(location.hash).length > 0){
-				alert("hepp")
+				alert("hepp");
 				$("#expanded-checklist").modal('show');
 
 			}	
-	})
+	});
 	
 });
 
